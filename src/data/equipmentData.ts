@@ -82,6 +82,22 @@ export const equipmentData: EquipmentData[] = [
     newTvm: 2,
     newGate: 4
   }
+  {
+    line: "Gold",
+    stationCode: "YWST010",
+    stationId: "ST33",
+    stationName: "Bin Mahmoud",
+    pdp: 1,
+    wideAisle: 2,
+    standardAisle: 6,
+    wideGate: 4,
+    gateArray: 6,
+    gate: 2,
+    tvm: 10,
+    tom: 2,
+    newTvm: 2,
+    newGate: 0
+  }
 ];
 
 export const equipmentTotals = [
