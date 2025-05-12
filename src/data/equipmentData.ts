@@ -178,6 +178,38 @@ export const equipmentData: EquipmentData[] = [
     newTvm: 3,
     newGate: 1
   },
+  {
+    line: "Gold",
+    stationCode: "YWST030",
+    stationId: "ST31",
+    stationName: "Souq Waqif",
+    pdp: 2,
+    wideAisle: 3,
+    standardAisle: 8,
+    wideGate: 5,
+    gateArray: 8,
+    gate: 3,
+    tvm: 12,
+    tom: 3,
+    newTvm: 3,
+    newGate: 1
+  },
+  {
+    line: "Gold",
+    stationCode: "YWST030",
+    stationId: "ST31",
+    stationName: "Souq Waqif",
+    pdp: 2,
+    wideAisle: 3,
+    standardAisle: 8,
+    wideGate: 5,
+    gateArray: 8,
+    gate: 3,
+    tvm: 12,
+    tom: 3,
+    newTvm: 3,
+    newGate: 1
+  },
 ];
 
 export const equipmentTotals = [
