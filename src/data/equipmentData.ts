@@ -387,9 +387,9 @@ export const equipmentData: EquipmentData[] = [
     newGate: 0
   }
   ]
-    line: "Red",
+    line; "Red",
     stationCode; "RNST080",
-    stationId: "ST02",
+    stationId; "ST02",
     stationName: "Qatar University",
     pdp: 1,
     wideAisle: 3,
