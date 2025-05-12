@@ -523,8 +523,8 @@ export const equipmentData: EquipmentData[] = [
     gate: 2,
     tvm: 10,
     tom: 2,
-    newTvm: 2,
-    newGate: 4
+    newTvm: 0,
+    newGate: 0
   },
   {
     line: "Gold",
@@ -540,8 +540,8 @@ export const equipmentData: EquipmentData[] = [
     gate: 3,
     tvm: 12,
     tom: 3,
-    newTvm: 3,
-    newGate: 1
+    newTvm: 0,
+    newGate: 0
   },
   {
     line: "Gold",
@@ -557,8 +557,8 @@ export const equipmentData: EquipmentData[] = [
     gate: 3,
     tvm: 12,
     tom: 3,
-    newTvm: 3,
-    newGate: 1
+    newTvm: 0,
+    newGate: 0
   },
   {
     line: "Gold",
@@ -574,8 +574,8 @@ export const equipmentData: EquipmentData[] = [
     gate: 3,
     tvm: 12,
     tom: 3,
-    newTvm: 3,
-    newGate: 1
+    newTvm: 0,
+    newGate: 0
   },
   {
     line: "Gold",
@@ -591,8 +591,8 @@ export const equipmentData: EquipmentData[] = [
     gate: 3,
     tvm: 12,
     tom: 3,
-    newTvm: 3,
-    newGate: 1
+    newTvm: 0,
+    newGate: 
   },
   {
     line: "Gold",
@@ -600,16 +600,16 @@ export const equipmentData: EquipmentData[] = [
     stationId: "ST35",
     stationName: "Souq Waqif",
     pdp: 2,
-    wideAisle: 3,
-    standardAisle: 8,
-    wideGate: 5,
-    standardGate: 4,
-    gateArray: 8,
-    gate: 3,
-    tvm: 12,
-    tom: 3,
-    newTvm: 3,
-    newGate: 1
+    wideAisle: 2,
+    standardAisle: 10,
+    wideGate: 4,
+    standardGate: 10,
+    gateArray: 2,
+    gate: 14,
+    tvm: 4,
+    tom: 4,
+    newTvm: 0,
+    newGate: 3
   },
   {
     line: "Gold",
