@@ -592,7 +592,7 @@ export const equipmentData: EquipmentData[] = [
     tvm: 12,
     tom: 3,
     newTvm: 0,
-    newGate: 
+    newGate: 0
   },
   {
     line: "Gold",
