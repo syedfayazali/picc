@@ -299,7 +299,7 @@ export const equipmentData: EquipmentData[] = [
     tvm: 3,
     tom: 3,
     newTvm: 1,
-    newGate: 0
+    newGate: 0,
   },
   // More station equipment data
   {
