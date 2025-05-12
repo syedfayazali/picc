@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { UserPlus, Trash2, Users, Database, Tool, Clock } from 'lucide-react';
+import { UserPlus, Trash2, Users, Database, PenTool as Tool, Clock } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import toast from 'react-hot-toast';
 import { equipmentData, EquipmentData } from '../data/equipmentData';
