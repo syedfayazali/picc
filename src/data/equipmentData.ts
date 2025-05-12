@@ -386,7 +386,7 @@ export const equipmentData: EquipmentData[] = [
     newTvm: 2,
     newGate: 0
   }
-]
+
   {
     line: "Red",
     stationCode: "RNST080",
