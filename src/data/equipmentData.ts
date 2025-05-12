@@ -79,7 +79,8 @@ export const equipmentData: EquipmentData[] = [
     tom: 2,
     newTvm: 2,
     newGate: 2
-  },{
+  },
+  {
     line: "Red",
     stationCode: "RNST090",
     stationId: "ST01",
@@ -110,7 +111,8 @@ export const equipmentData: EquipmentData[] = [
     tom: 2,
     newTvm: 2,
     newGate: 2
-  },{
+  },
+  {
     line: "Red",
     stationCode: "RNST090",
     stationId: "ST01",
