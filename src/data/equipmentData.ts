@@ -40,15 +40,16 @@ export const equipmentData: EquipmentData[] = [
     stationId: "ST02",
     stationName: "Qatar University",
     pdp: 1,
-    wideAisle: 3,
+    wideAisle: 1,
     standardAisle: 4,
     wideGate: 2,
-    gateArray: 4,
-    gate: 1,
-    tvm: 10,
+    standardGate: 4,
+    gateArray: 1,
+    gate: 6,
+    tvm: 2,
     tom: 2,
-    newTvm: 2,
-    newGate: 2
+    newTvm: 0,
+    newGate: 0
   },
   {
     line: "Red",
