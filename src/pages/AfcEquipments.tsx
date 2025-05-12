@@ -18,7 +18,9 @@ const AfcEquipments: React.FC = () => {
     { key: 'standardGate', label: 'Standard Gate'},
     { key: 'gate', label: 'Gate' },
     { key: 'tvm', label: 'TVM' },
-    { key: 'tom', label: 'TOM' }
+    { key: 'tom', label: 'TOM' },
+    { key: 'newtvm', label:'New TVM'},
+    { key: 'newgate', label:'New Gate'}
   ];
 
   const totalsColumns = [
