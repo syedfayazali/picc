@@ -287,19 +287,19 @@ export const equipmentData: EquipmentData[] = [
   },
   {
     line: "Red",
-    stationCode: "RNST080",
-    stationId: "ST02",
+    stationCode: "REST020",
+    stationId: "ST18",
     stationName: "Hamad International Airport",
     pdp: 1,
-    wideAisle: 3,
-    standardAisle: 4,
-    wideGate: 2,
-    gateArray: 4,
-    gate: 1,
-    tvm: 10,
-    tom: 2,
-    newTvm: 2,
-    newGate: 2
+    wideAisle: 6,
+    standardAisle: 0,
+    wideGate: 8,
+    gateArray: 2,
+    gate: 8,
+    tvm: 3,
+    tom: 3,
+    newTvm: 1,
+    newGate: 0
   },
   // More station equipment data
   {
