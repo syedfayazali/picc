@@ -388,7 +388,7 @@ export const equipmentData: EquipmentData[] = [
   }
   ]
     line: "Red",
-    stationCode: "RNST080",
+    stationCode; "RNST080",
     stationId: "ST02",
     stationName: "Qatar University",
     pdp: 1,
