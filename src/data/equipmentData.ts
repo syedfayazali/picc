@@ -81,7 +81,7 @@ export const equipmentData: EquipmentData[] = [
     tom: 2,
     newTvm: 2,
     newGate: 4
-  }
+  },
   {
     line: "Gold",
     stationCode: "YWST010",
