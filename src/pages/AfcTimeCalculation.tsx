@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Calculator, Clock, Save, Check } from 'lucide-react';
+import { Calculator, Clock, Save } from 'lucide-react';
 import manhourData from '../data/manhourData';
 import InfoCard from '../components/InfoCard';
 
+// Update interface to allow null for optional numeric fields
 interface SelectedTask {
   jobNumber: string;
   jobTask: string;
   laborQty: string;
   exactManhour: number;
-  noOfEqp: number;
-  actualManpower: number;
+  noOfEqp: number | null; // Allow null
+  actualManpower: number | null; // Allow null
 }
 
 const AfcTimeCalculation: React.FC = () => {
@@ -25,8 +26,8 @@ const AfcTimeCalculation: React.FC = () => {
         jobTask: manhourData[0].jobTask,
         laborQty: manhourData[0].laborQty,
         exactManhour: manhourData[0].exactManhour,
-        noOfEqp: '',
-        actualManpower: ''
+        noOfEqp: null, // Initialize as null
+        actualManpower: null // Initialize as null
       }]);
     }
   };
@@ -49,13 +50,32 @@ const AfcTimeCalculation: React.FC = () => {
         };
       }
     } else {
-      updatedTasks[index] = { ...updatedTasks[index], [field]: value };
+      // Handle numeric fields
+      if (field === 'noOfEqp' || field === 'actualManpower') {
+        // Allow empty input (null) or valid numbers
+        updatedTasks[index] = {
+          ...updatedTasks[index],
+          [field]: value === '' ? null : Number(value)
+        };
+      } else {
+        updatedTasks[index] = { ...updatedTasks[index], [field]: value };
+      }
     }
     setSelectedTasks(updatedTasks);
   };
 
   const calculateSchedule = () => {
     if (!bookInTime || selectedTasks.length === 0) {
+      return;
+    }
+
+    // Validate inputs
+    const hasValidInputs = selectedTasks.every(task => 
+      task.noOfEqp !== null && task.noOfEqp > 0 && 
+      task.actualManpower !== null && task.actualManpower > 0
+    );
+    if (!hasValidInputs) {
+      alert('Please enter valid numbers for Number of Equipment and Actual Manpower.');
       return;
     }
 
@@ -75,7 +95,11 @@ const AfcTimeCalculation: React.FC = () => {
 
       // Calculate each task
       selectedTasks.forEach((task, index) => {
-        const duration = Math.round((task.exactManhour * task.noOfEqp * parseInt(task.laborQty)) / task.actualManpower);
+        // Use type assertion since we validated inputs
+        const duration = Math.round(
+          (task.exactManhour * (task.noOfEqp as number) * parseInt(task.laborQty)) / 
+          (task.actualManpower as number)
+        );
         const startTime = new Date(currentTime);
         const endTime = new Date(currentTime.getTime() + duration * 60000);
         
@@ -93,6 +117,7 @@ const AfcTimeCalculation: React.FC = () => {
       setShowSchedule(true);
     } catch (error) {
       console.error('Error calculating schedule:', error);
+      alert('An error occurred while calculating the schedule.');
     }
   };
 
@@ -183,8 +208,8 @@ const AfcTimeCalculation: React.FC = () => {
                     <input
                       type="number"
                       min="1"
-                      value={task.noOfEqp}
-                      onChange={(e) => updateTask(index, 'noOfEqp', parseInt(e.target.value) || 1)}
+                      value={task.noOfEqp ?? ''} // Use empty string for null
+                      onChange={(e) => updateTask(index, 'noOfEqp', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
@@ -196,8 +221,8 @@ const AfcTimeCalculation: React.FC = () => {
                     <input
                       type="number"
                       min="1"
-                      value={task.actualManpower}
-                      onChange={(e) => updateTask(index, 'actualManpower', parseInt(e.target.value) || 1)}
+                      value={task.actualManpower ?? ''} // Use empty string for null
+                      onChange={(e) => updateTask(index, 'actualManpower', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
