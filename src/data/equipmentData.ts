@@ -7,6 +7,7 @@ export interface EquipmentData {
   wideAisle: number;
   standardAisle: number;
   wideGate: number;
+  standardgate: number;
   gateArray: number;
   gate: number;
   tvm: number;
