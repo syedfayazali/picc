@@ -7,7 +7,7 @@ export interface EquipmentData {
   wideAisle: number;
   standardAisle: number;
   wideGate: number;
-  standardgate: number;
+  standardGate: number;
   gateArray: number;
   gate: number;
   tvm: number;
@@ -26,6 +26,7 @@ export const equipmentData: EquipmentData[] = [
     wideAisle: 3,
     standardAisle: 6,
     wideGate: 6,
+    standardGate: 0,
     gateArray: 6,
     gate: 3,
     tvm: 12,
