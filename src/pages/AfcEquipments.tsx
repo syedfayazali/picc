@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Database, BarChart } from 'lucide-react';
+import { Database, BarChart, Search } from 'lucide-react';
 import { equipmentData, equipmentTotals } from '../data/equipmentData';
 import DataTable from '../components/DataTable';
 import InfoCard from '../components/InfoCard';
 
 const AfcEquipments: React.FC = () => {
   const [filterLine, setFilterLine] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const equipmentColumns = [
     { key: 'line', label: 'Line' },
@@ -45,10 +46,15 @@ const AfcEquipments: React.FC = () => {
     'All Lines': 'bg-blue-100 text-blue-800'
   };
 
-  // Filter equipment by line
-  const filteredEquipment = equipmentData.filter(
-    equipment => filterLine === 'All' || equipment.line === filterLine
-  );
+  // Filter equipment by line and search term
+  const filteredEquipment = equipmentData.filter(equipment => {
+    const matchesLine = filterLine === 'All' || equipment.line === filterLine;
+    const matchesSearch = searchTerm === '' || 
+      equipment.stationName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      equipment.stationCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      equipment.line.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesLine && matchesSearch;
+  });
 
   return (
     <div className="max-w-6xl mx-auto space-y-6">
@@ -60,24 +66,40 @@ const AfcEquipments: React.FC = () => {
           <p>Inventory of AFC equipment across all lines with detailed counts by station.</p>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {['All', 'Red', 'Green', 'Gold'].map(line => (
-            <button
-              key={line}
-              onClick={() => setFilterLine(line)}
-              className={`
-                px-3 py-1 rounded-full text-sm font-medium transition-colors
-                ${line === 'All' 
-                  ? (filterLine === 'All' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700')
-                  : (filterLine === line 
-                      ? lineColors[line as keyof typeof lineColors] 
-                      : 'bg-gray-200 text-gray-700')
-                }
-              `}
-            >
-              {line} {line !== 'All' ? 'Line' : 'Lines'}
-            </button>
-          ))}
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <div className="md:w-1/2">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search by station name, code, or line..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+          </div>
+          <div className="md:w-1/2 flex gap-2">
+            {['All', 'Red', 'Green', 'Gold'].map(line => (
+              <button
+                key={line}
+                onClick={() => setFilterLine(line)}
+                className={`
+                  flex-1 px-3 py-2 rounded-md text-sm font-medium transition-colors
+                  ${line === 'All' 
+                    ? (filterLine === 'All' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700')
+                    : (filterLine === line 
+                        ? lineColors[line as keyof typeof lineColors] 
+                        : 'bg-gray-200 text-gray-700')
+                  }
+                `}
+              >
+                {line} {line !== 'All' ? 'Line' : 'Lines'}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="mb-8">
