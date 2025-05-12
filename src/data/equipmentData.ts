@@ -696,11 +696,12 @@ export const equipmentTotals = [
     wideAisle: 82,
     standardAisle: 214,
     wideGate: 159,
-    gateArray: 214,
-    gate: 77,
-    tvm: 373,
-    tom: 99,
-    newTvm: 81,
+    standardGate: 214,
+    gateArray: 77,
+    gate: 373,
+    tvm: 99,
+    tom: 81,
+    newTvm: 20,
     newGate: 35
   }
 ];
