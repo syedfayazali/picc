@@ -15,7 +15,7 @@ const AfcEquipments: React.FC = () => {
     { key: 'wideAisle', label: 'Wide Aisle' },
     { key: 'standardAisle', label: 'Standard Aisle' },
     { key: 'wideGate', label: 'Wide Gate' },
-    { key: 'standardGate', label: 'Standard Gate'}
+    { key: 'standardGate', label: 'Standard Gate'},
     { key: 'gate', label: 'Gate' },
     { key: 'tvm', label: 'TVM' },
     { key: 'tom', label: 'TOM' }
@@ -27,7 +27,7 @@ const AfcEquipments: React.FC = () => {
     { key: 'wideAisle', label: 'Wide Aisle' },
     { key: 'standardAisle', label: 'Standard Aisle' },
     { key: 'wideGate', label: 'Wide Gate' },
-    { key: 'standardGate', label: "Standard Gate"}
+    { key: 'standardGate', label: "Standard Gate"},
     { key: 'gateArray', label: 'Gate Array' },
     { key: 'gate', label: 'Gate' },
     { key: 'tvm', label: 'TVM' },
