@@ -312,7 +312,7 @@ export const equipmentData: EquipmentData[] = [
     wideAisle: 6,
     standardAisle: 0,
     wideGate: 8,
-    standardGate: 4,
+    standardGate: 0,
     gateArray: 2,
     gate: 8,
     tvm: 3,
