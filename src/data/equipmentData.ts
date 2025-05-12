@@ -657,7 +657,7 @@ export const equipmentTotals = [
     standardGate: 102,
     gateArray: 40,
     gate: 186,
-    tvm: 54
+    tvm: 54,
     tom: 41,
     newTvm: 14,
     newGate: 18
