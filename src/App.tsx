@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, Home, Radio, PenTool as Tool, Clock, Phone, Database, FileText, ChevronRight, DoorOpen } from 'lucide-react';
 import { Toaster } from 'react-hot-toast';
-import { motion, AnimatePresence } from 'framer-motion';
 import Sidebar from './components/Sidebar';
 import Login from './components/Login';
 import AdminPanel from './components/AdminPanel';
@@ -15,7 +14,6 @@ import StationCodes from './pages/StationCodes';
 import AfcEquipments from './pages/AfcEquipments';
 import MtiMaintenance from './pages/MtiMaintenance';
 import StationEntries from './pages/StationEntries';
-import MetroBackground from './components/MetroBackground';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -69,13 +67,8 @@ function App() {
         return <StationEntries />;
       default:
         return (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] p-4 relative"
-          >
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-lg w-full max-w-4xl relative z-10">
+          <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] p-4">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">
               <h1 className="text-2xl md:text-3xl font-bold text-blue-700 mb-4">Welcome to Pic Companion</h1>
               <p className="text-gray-700 mb-6">
                 Your comprehensive tool for AFC operations and maintenance management.
@@ -108,7 +101,7 @@ function App() {
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
         );
     }
   };
@@ -116,30 +109,14 @@ function App() {
   return (
     <>
       <Toaster position="top-right" />
-      <div className="flex min-h-screen bg-slate-100 relative">
-        <MetroBackground />
-        
-        <AnimatePresence>
-          {sidebarOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-20"
-              onClick={toggleSidebar}
-            />
-          )}
-        </AnimatePresence>
-
+      <div className="flex min-h-screen bg-slate-100">
         <div className="lg:hidden fixed top-0 left-0 p-4 z-30">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={toggleSidebar}
             className="p-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
           >
             <Menu className="h-6 w-6" />
-          </motion.button>
+          </button>
         </div>
 
         <Sidebar 
@@ -151,27 +128,17 @@ function App() {
         />
 
         <div className="flex-1 flex flex-col min-h-screen w-full">
-          <header className="bg-white/80 backdrop-blur-sm shadow-sm p-4 sticky top-0 z-20">
+          <header className="bg-white shadow-sm p-4 sticky top-0 z-20">
             <div className="flex items-center">
               <h1 className="text-xl font-semibold text-gray-800 ml-16 lg:ml-0">
                 {currentPage === 'Home' ? 'Pic Companion Dashboard' : currentPage}
               </h1>
             </div>
           </header>
-          <main className="flex-1 p-4 overflow-x-hidden relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentPage}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                {renderPage()}
-              </motion.div>
-            </AnimatePresence>
+          <main className="flex-1 p-4 overflow-x-hidden">
+            {renderPage()}
           </main>
-          <footer className="text-center text-gray-500 text-sm p-4 border-t bg-white/80 backdrop-blur-sm mt-auto relative z-10">
+          <footer className="text-center text-gray-500 text-sm p-4 border-t bg-white mt-auto">
             <p>Pic Companion Webapp | Developed for AFC Operations | © 2025</p>
             <p className="mt-1">Made with ❤️ by Syed Fayaz ali - AFC Technician</p>
           </footer>
@@ -183,10 +150,8 @@ function App() {
 
 const HomeFeatureCard = ({ icon, title, description, onClick }) => {
   return (
-    <motion.div 
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="bg-white/80 backdrop-blur-sm p-4 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer border border-blue-100"
+    <div 
+      className="bg-blue-50 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-blue-100"
       onClick={onClick}
     >
       <div className="flex items-center mb-2">
@@ -197,7 +162,7 @@ const HomeFeatureCard = ({ icon, title, description, onClick }) => {
       <div className="flex justify-end mt-2">
         <ChevronRight className="h-5 w-5 text-blue-600" />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
